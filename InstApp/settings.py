@@ -53,6 +53,9 @@ ROOT_URLCONF = 'InstApp.urls'
 
 WSGI_APPLICATION = 'InstApp.wsgi.application'
 
+TEMPLATE_DIRS = (
+    '/Users/alenehan/PycharmProjects/InstApp/templates',
+)
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases

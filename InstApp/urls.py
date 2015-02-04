@@ -6,5 +6,6 @@ urlpatterns = patterns('',
     # url(r'^$', 'InstApp.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^hello/$', 'Moore.views.hello'),
+    url(r'^hello_template/$', 'Moore.views.hello_template'),
 )
