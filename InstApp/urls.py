@@ -8,4 +8,5 @@ urlpatterns = patterns('',
 
     url(r'^hello/$', 'Moore.views.hello'),
     url(r'^hello_template/$', 'Moore.views.hello_template'),
+    url('', include('social.apps.django_app.urls', namespace='social')),
 )

@@ -1,15 +1,19 @@
 from django.http import HttpResponse
 from django.template.loader import get_template
 from django.template import Context
-from instagram.client import InstagramAPI
+from instagram import InstagramAPI, client, subscriptions
+import social_auth
+import json
+
+CONFIG = {
+    'client_id': '5f8b7002172c4ce6bfdfe76bdf366f3f',
+    'client_secret': 'cc5f2a548da94d07a5e4f82f81ad3fb9',
+    'redirect_uri': 'http://127.0.0.1:8000/oauth_callback'
+}
 
 def hello(request):
-    name = "Andy"
-    html = "<html><body>Hi Andy, this seems to have worked!</body></html>"
-    return HttpResponse(html)
-
-def hello_template(request):
-    name = "Andy"
+    api = InstagramAPI(client_id='5f8b7002172c4ce6bfdfe76bdf366f3f', client_secret='cc5f2a548da94d07a5e4f82f81ad3fb9')
+    popular_media = api.media_popular(count=5)
     t = get_template('hello.html')
-    html = t.render(Context({'name': name}))
+    html = t.render(Context({'popular_media': popular_media}))
     return HttpResponse(html)

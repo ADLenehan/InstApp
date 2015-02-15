@@ -37,7 +37,19 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Moore',
+    'instagram',
+    'social.apps.django_app.default',
 )
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.instagram.InstagramOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+INSTAGRAM_CLIENT_ID = '5f8b7002172c4ce6bfdfe76bdf366f3f'
+INSTAGRAM_CLIENT_SECRET = 'cc5f2a548da94d07a5e4f82f81ad3fb9'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,6 +67,11 @@ WSGI_APPLICATION = 'InstApp.wsgi.application'
 
 TEMPLATE_DIRS = (
     '/Users/alenehan/PycharmProjects/InstApp/templates',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
 )
 
 # Database

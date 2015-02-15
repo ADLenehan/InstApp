@@ -5,7 +5,12 @@
     <title></title>
 </head>
 <body>
-Hi {{ name }} this TEMPLATE seems to have worked!
+{% for media in popular_media %}
 
+    <img src={{ media.images.thumbnail.url }} >
+
+{% endfor %}
+
+<a href="{% url 'social:begin' 'instagram' %}">Login with grams</a>
 </body>
 </html>
